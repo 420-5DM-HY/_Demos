@@ -1,0 +1,20 @@
+<!--
+  ~ (CC by-nc-sa) Stéphane Denis
+  ~ http://creativecommons.org/licenses/by-nc-sa/4.0/
+  -->
+
+<resources>
+    <string name="app_name">Télécharger et jouer</string>
+    <string name="LoadRequested">Lancement du chargement
+        \n\nÇa peut prendre un certain temps...
+        \nRegardez dans la barre en haut,
+        \n\nl\'icône devrait apparaitre... éventuellement :-)
+        \npuis disparaitre à la fin du travail.   \n\npatience! C\'est en basse priorité.
+        \n montez le son pour entendre la notification.
+        \n\nLe bouton <i>Jouer le fichier</i> sera activé quand c\'est prêt.
+    </string>
+    <string name="CheckSecSettings">Vérifiez les réglages de sécurité</string>
+    <string name="DownloadPaused">Téléchargement en pause ...</string>
+    <string name="DownloadPending">Téléchargement en attente ...</string>
+    <string name="DownloadRunning">Téléchargement en cours ...</string>
+</resources>

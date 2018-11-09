@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ (CC by-nc-sa) Stéphane Denis
+  ~ http://creativecommons.org/licenses/by-nc-sa/4.0/
+  -->
+
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <root-path
+        name="fichier"
+        path="."/>
+    </paths>
