@@ -1,1 +1,2 @@
 Source: https://freepd.com/music/Silly%20Intro.mp3
+License: https://creativecommons.org/publicdomain/zero/1.0/legalcode
