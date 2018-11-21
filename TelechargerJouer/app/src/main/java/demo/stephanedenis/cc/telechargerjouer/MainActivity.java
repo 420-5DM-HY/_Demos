@@ -33,8 +33,11 @@ import static android.os.Environment.getExternalStoragePublicDirectory;
 @EActivity
 public class MainActivity extends AppCompatActivity {
 
-    String urlPathStr = "https://420-gep-hy.github.io/_Demos/TestData/"; //
-    String fileName = "SillyIntro.mp3";
+    // String urlPathStr = "https://420-gep-hy.github.io/_Demos/TestData/"; //
+    String urlPathStr = "https://twit.cachefly.net/video/sn/sn0689/";
+
+    // String fileName = "SillyIntro.mp3";
+    String fileName = "sn0689_h264m_1280x720_1872.mp4";
     String path = "MesPodcasts/";
 
     Long downloadReference;
@@ -50,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
 
     @ViewById
     Button jouer;
+
+    @ViewById
+    Button Suivi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,7 +97,12 @@ public class MainActivity extends AppCompatActivity {
 
                             switch (cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS))) {
                                 case DownloadManager.STATUS_PAUSED: {
-                                    message(getString(R.string.DownloadPaused));
+                                    int reason = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_REASON));
+                                    message(getString(R.string.DownloadPaused)
+                                            +(reason==DownloadManager.PAUSED_QUEUED_FOR_WIFI?" En attente du WiFi"
+                                            :(reason==DownloadManager.PAUSED_WAITING_FOR_NETWORK?" En attente du réseau"
+                                            :(reason==DownloadManager.PAUSED_WAITING_TO_RETRY?"Va réessayer plus tard"
+                                            :"Attente d'origine inconnue"))));
                                     break;
                                 }
                                 case DownloadManager.STATUS_PENDING: {
@@ -141,6 +152,9 @@ public class MainActivity extends AppCompatActivity {
 
             // Affiche la petite icone de téléchargement dans la barre du haut
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+
+    request.allowScanningByMediaScanner();
+
 
             // Emplacement où mettre le fichier
             request.setDestinationUri(uri);
@@ -206,5 +220,10 @@ public class MainActivity extends AppCompatActivity {
         intent.setDataAndType(uri, mimeType);
         intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         startActivity(intent);
+    }
+
+    @Click
+    void suivi(){
+        startActivity(new Intent(DownloadManager.ACTION_VIEW_DOWNLOADS));
     }
 }
